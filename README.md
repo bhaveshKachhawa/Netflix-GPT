@@ -19,6 +19,9 @@ If you are developing a production application, we recommend using TypeScript wi
 ## netflix gpt
     - create vite@latest
     - install tailwind
+    - Header
+    - Login Form
+    - Sign Up form
 
 ## Features
 - Login/Sign Up

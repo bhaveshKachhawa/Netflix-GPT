@@ -1,5 +1,9 @@
+import Body from './components/Body';
+
 function App() {
-  return <h1 className="bold italic">Hello</h1>
+  return (
+    <Body />
+  );
 }
 
 export default App
