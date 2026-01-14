@@ -20,8 +20,16 @@ If you are developing a production application, we recommend using TypeScript wi
     - create vite@latest
     - install tailwind
     - Header
+    - Routing
     - Login Form
     - Sign Up form
+    - Form validation
+    - Setup firebase
+    - Authentication using firebase
+    - Deploy app
+    - Add user to firebase
+    - Install react-redux/redux-tollkit
+    - Setup redux store and add user data
 
 ## Features
 - Login/Sign Up
