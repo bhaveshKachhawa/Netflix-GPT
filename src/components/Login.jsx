@@ -57,7 +57,6 @@ const Login = () => {
                 <button className="bg-red-700 w-80 p-2 font-bold cursor-pointer" onClick={handleSubmit}>{isSignUp?"Sign Up":"Sign In"}</button>
                 <span>{isSignUp?"Already registered? ":"New to netflix? "}<button className="underline cursor-pointer" onClick={handleSignUp}>{isSignUp?" Sign In Now.":" Sign Up Now."}</button></span>
             </form>
-            <img src='https://assets.nflxext.com/ffe/siteui/vlv3/ce462eb6-4d7f-4c9a-9f61-93cb535a64fd/web/IN-en-20260105-TRIFECTA-perspective_5ec818ea-11f4-4bff-a409-8f36e9f9a1e2_small.jpg'/>
         </div>
     )
 }
