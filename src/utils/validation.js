@@ -3,7 +3,7 @@ export const checkValidation = (email, password) => {
     const isPasswordValid = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password);
 
     if(!isEmailValid) return "Email Id is not valid!";
-    if(!isPasswordValid) return "Password is not valid!";
+    if(!isPasswordValid) return "Password must be 6-16 characters with a number, special character, and alphabet";
 
     return null;
 }
