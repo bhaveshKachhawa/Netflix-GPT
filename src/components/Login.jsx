@@ -6,6 +6,8 @@ import {auth} from './../utils/firebase';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import {addUser} from './../redux/userSlice';
+import {BG} from './../utils/constant';
+
 const Login = () => {
     const [isSignUp, setIsSignUp] = useState();
     const [errorMsg, setErrorMsg] = useState("");
@@ -32,8 +34,7 @@ const Login = () => {
                     displayName: name.current.value
                     }).then(() => {
                         const {uid, email, displayName} = auth.currentUser;
-                        dispatch(addUser({uid,email,displayName}));
-                        navigate('/browse');                          
+                        dispatch(addUser({uid,email,displayName}));                  
                     }).catch((error) => {
                     setErrorMsg(error.errorCode + " - " +error.errorMessage);
                 });
@@ -71,7 +72,7 @@ const Login = () => {
                 <button className="bg-red-700 w-80 p-2 font-bold cursor-pointer" onClick={handleSubmit}>{isSignUp?"Sign Up":"Sign In"}</button>
                 <span>{isSignUp?"Already registered? ":"New to netflix? "}<button className="underline cursor-pointer" onClick={handleSignUp}>{isSignUp?" Sign In Now.":" Sign Up Now."}</button></span>
             </form>
-            <img src='https://assets.nflxext.com/ffe/siteui/vlv3/ce462eb6-4d7f-4c9a-9f61-93cb535a64fd/web/IN-en-20260105-TRIFECTA-perspective_5ec818ea-11f4-4bff-a409-8f36e9f9a1e2_small.jpg'/>
+            <img src={BG}/>
         </div>
     )
 }

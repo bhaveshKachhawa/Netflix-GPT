@@ -30,6 +30,20 @@ If you are developing a production application, we recommend using TypeScript wi
     - Add user to firebase
     - Install react-redux/redux-tollkit
     - Setup redux store and add user data
+    - SignUp user and login/logout user
+    - Bugfix - Showing displayname after login
+    - Bugfix - If user is loged in then not able to redirect on home page and vice-verse.
+    - Register TMDB API & create app & get access token
+    - Created custom hook for nowPlaying movies
+    - create Movie slice
+    - Planning for MainContainer & seceondary container
+    - Add title and movie discription of Main Container
+    - Fetch data for trailer video
+    - Embaded the youtube video and make it autoplay and mute
+    - Create Secondary component
+    - Fetch data from API [popular movies, topRated movies etc]
+    - Display create movies list and movie card.
+    - Display diff movies lists.
 
 ## Features
 - Login/Sign Up
