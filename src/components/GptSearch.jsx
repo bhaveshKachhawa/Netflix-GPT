@@ -8,7 +8,7 @@ const GptSearch = () => {
         <>
         <GPTSearchBar />
         <GPTSearchSugesstions />
-        <img src={BG} className='fixed'/>
+        <img src={BG} className="fixed object-cover h-screen w-screen"/>
         </>
     );
 }

@@ -21,8 +21,8 @@ const gptSlice = createSlice({
             state.names = null,
             state.movies = null;
         },
-        updateShimmerVisibility:(state) =>{
-            state.shimmerVisibility = !state.shimmerVisibility;
+        updateShimmerVisibility:(state, action) =>{
+            state.shimmerVisibility = action.payload;
         }
     }
 });

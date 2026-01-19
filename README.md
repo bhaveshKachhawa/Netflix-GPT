@@ -44,6 +44,14 @@ If you are developing a production application, we recommend using TypeScript wi
     - Fetch data from API [popular movies, topRated movies etc]
     - Display create movies list and movie card.
     - Display diff movies lists.
+    - Create GPTSearch feature.
+    - Use groq AI and setup key for this.
+    - On the basis of user input call API of groq.
+    - Build SearchSuggestion and display movies list according to user input.
+    - Build shimmer UI to show user until fetcing data from api.
+    - Memozie app, avoid unnecessory api calls.
+    - Create env file and put api key their for security.
+    - Refactor code.
 
 ## Features
 - Login/Sign Up

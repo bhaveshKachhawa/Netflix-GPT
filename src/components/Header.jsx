@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import {useEffect} from 'react';
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from '../redux/userSlice';
-import { updateVisibility, emptyUserSearchData } from "../redux/gptSlice";
+import { updateVisibility, emptyUserSearchData, updateShimmerVisibility } from "../redux/gptSlice";
 import { PROFILE_LOGO, LOGO } from "../utils/constant";
 
 const Header = () => {
@@ -16,6 +16,7 @@ const Header = () => {
 
     const handleGptClick = () => {
         dispatch(updateVisibility());
+        dispatch(updateShimmerVisibility(false));
         if(visibility) dispatch(emptyUserSearchData());
     }
 
@@ -43,17 +44,38 @@ const Header = () => {
     }
     }, []);
 
-    return (
-        <div className="absolute mx-40 my-2 z-10 flex justify-between h-20 w-[88%]">
-            <img src={LOGO} className="z-10"/>
-            <div className="pointer-events-none fixed inset-0 bg-black/30  bg-linear-to-b from-black/60 via-transparent to-black/60"></div>
-            {userData &&
-                      <div className="flex">
-                      <button className="bg-white h-10 self-center px-4 rounded-lg opacity-70 cursor-pointer text-black hover:opacity-60" onClick={handleGptClick}>{visibility?"Home":"GPT Search"}</button>
-                      <img className='ml-auto scale-50 mt-0' src={PROFILE_LOGO} />
-                      <button className="mr-2 font-bold cursor-pointer  opacity-70 hover:opacity-60 text-white" onClick={handleSignOut}>Sign out</button></div>}
+return (
+    <div className="absolute top-0 left-0 w-full z-50 flex flex-col md:flex-row md:justify-between items-start px-4 py-3">
+        <div className="fixed inset-0 bg-black/30 bg-linear-to-b from-black/60 via-transparent to-black/60 -z-10 pointer-events-none"></div>
+        <div className="z-50 md:px-30">
+            <img src={LOGO} className="w-40 md:w-48" alt="logo" />
         </div>
-    )
+        {userData && (
+            <div className="relative z-[100] flex items-center justify-start md:justify-between w-full md:w-auto mt-4 px-4 pointer-events-auto">
+                <button 
+                    className="bg-white h-10 px-4 md:px-6 rounded-lg text-black hover:bg-gray-200 cursor-pointer active:scale-95 transition-all" 
+                    onClick={() => {
+                        handleGptClick();
+                    }}
+                >
+                    {visibility ? "Home" : "GPT Search"}
+                </button>
+                
+                <div className="flex items-center ml-4">
+                    <img className='w-10 h-10 rounded-md object-cover' src={PROFILE_LOGO} alt="user" />
+                    <button 
+                        className="ml-2 font-bold text-white hover:underline cursor-pointer" 
+                        onClick={() => {
+                            handleSignOut();
+                        }}
+                    >
+                        Sign out
+                    </button>
+                </div>
+            </div>
+        )}
+    </div>
+);
 }
 
 export default Header;

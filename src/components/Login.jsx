@@ -61,18 +61,18 @@ const Login = () => {
     return (
         <div>
             <Header />
-            <form onSubmit={(e) => e.preventDefault()} className="absolute mx-[36%] z-10 my-30 text-amber-100 p-14 w-auto flex flex-col bg-black/80 gap-4">
+            <form onSubmit={(e) => e.preventDefault()} className="absolute md:mx-[36%] z-50 mt-40 md:my-30 text-amber-100 p-9 md:p-14 flex flex-col bg-black/80 gap-4">
                 <label className="font-bold text-3xl mb-4">{isSignUp?"Sign Up":"Sign In"}</label>
-                {isSignUp && <input ref={name} className="border-gray-300 border bg-gray-500/50 p-3 w-80 rounded-lg" type="text" placeholder="Name"/>}
-                <input ref={email} className="border-gray-300 border bg-gray-500/50 p-3 w-80 rounded-lg" type="email" placeholder="Email"/>
-                <input ref={password} className="border-gray-300 border bg-gray-500/50 p-3 w-80 rounded-lg" 
+                {isSignUp && <input ref={name} className="border-gray-300 border bg-gray-500/50 p-3 w-60 md:w-80 rounded-lg" type="text" placeholder="Name"/>}
+                <input ref={email} className="border-gray-300 border bg-gray-500/50 p-3 w-60 md:w-80 rounded-lg" type="email" placeholder="Email"/>
+                <input ref={password} className="border-gray-300 border bg-gray-500/50 p-3 w-60 md:w-80 rounded-lg" 
                     type={passwordVisibility?"text":"password"} placeholder="Password"/>
-                <input className={isSignUp?"absolute top-68 right-20":"absolute top-52 right-20"} type="checkbox" onChange={(e) => setPasswordVisibility(e.target.checked)}/>                    
+                <input className={isSignUp?"absolute top-64 left-58 md:top-69 md:left-85":"absolute top-48 left-60 md:top-52 md:left-85"} type="checkbox" onChange={(e) => setPasswordVisibility(e.target.checked)}/>                    
                 <p className="text-red-700 font-bold">{errorMsg}</p>
-                <button className="bg-red-700 w-80 p-2 font-bold cursor-pointer" onClick={handleSubmit}>{isSignUp?"Sign Up":"Sign In"}</button>
+                <button className="bg-red-700 w-60 md:w-80 p-2 font-bold cursor-pointer" onClick={handleSubmit}>{isSignUp?"Sign Up":"Sign In"}</button>
                 <span>{isSignUp?"Already registered? ":"New to netflix? "}<button className="underline cursor-pointer" onClick={handleSignUp}>{isSignUp?" Sign In Now.":" Sign Up Now."}</button></span>
             </form>
-            <img src={BG}/>
+            <img src={BG} className="md:h-screen md:w-screen object-cover h-screen "/>
         </div>
     )
 }

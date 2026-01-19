@@ -20,8 +20,8 @@ const SecondaryContainer = () => {
     const onTheAirList = onTheAirObj.results;
 
     return (
-        <div className='relative z-30'>
-            <div className='-mt-86 bg-none relative'>
+        <div className='relative z-50'>
+            <div className='mt-35 md:-mt-86 bg-none relative'>
                 <MovieList title={"Now Playing"} movieList={nowPlayingMoviesList}/>
             </div>
             <div className='bg-black'>

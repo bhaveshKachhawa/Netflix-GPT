@@ -21,7 +21,7 @@ const Browse = () => {
     useUpcomingMovies();
 
     return (
-        <div>
+        <div className='bg-black md:bg-none'>
             <Header />
             {visibility?<GptSearch />:<>
                         <MainContainer />
