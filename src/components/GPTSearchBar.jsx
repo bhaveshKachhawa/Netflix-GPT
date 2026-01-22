@@ -29,7 +29,7 @@ const GPTSearchBar = () => {
     }
 
     return (
-                <div className="mt-40 w-[75%] md:w-[55%] absolute md:ml-[25%] md:w-1/2 bg-black z-10 p-5 opacity-95 z-50">
+                <div className="mt-60 ml-5 md:mt-40 w-[90%] md:w-[55%] absolute md:ml-[25%] md:w-1/2 bg-black z-10 p-5 opacity-95 z-50">
                     <form onSubmit={(e) => e.preventDefault()} className="flex gap-2 h-10">
                         <input type="text" ref={userInput} placeholder=" What would you like to watch today?" className="w-[100%] md:w-[80%] bg-white pl-1 text-sm md:text-1xl"/>
                         <button className="hover:opacity-70 w-[25%] md:w-[20%] bg-red-500 text-white rounded-lg" onClick={handleGPTSearch}>Search</button>

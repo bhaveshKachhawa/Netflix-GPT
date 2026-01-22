@@ -61,7 +61,7 @@ const Login = () => {
     return (
         <div>
             <Header />
-            <form onSubmit={(e) => e.preventDefault()} className="absolute md:mx-[36%] z-50 mt-40 md:my-30 text-amber-100 p-9 md:p-14 flex flex-col bg-black/80 gap-4">
+            <form onSubmit={(e) => e.preventDefault()} className="absolute mx-11 md:mx-[36%] z-50 mt-55 md:my-30 text-amber-100 p-9 md:p-14 flex flex-col bg-black/80 gap-4">
                 <label className="font-bold text-3xl mb-4">{isSignUp?"Sign Up":"Sign In"}</label>
                 {isSignUp && <input ref={name} className="border-gray-300 border bg-gray-500/50 p-3 w-60 md:w-80 rounded-lg" type="text" placeholder="Name"/>}
                 <input ref={email} className="border-gray-300 border bg-gray-500/50 p-3 w-60 md:w-80 rounded-lg" type="email" placeholder="Email"/>
