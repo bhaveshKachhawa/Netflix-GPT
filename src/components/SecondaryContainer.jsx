@@ -1,38 +1,42 @@
-import {useSelector} from 'react-redux';
-import MovieList from './MovieList';
+import { useSelector } from "react-redux";
+import MovieList from "./MovieList";
 
 const SecondaryContainer = () => {
-    const nowPlayingMoviesObj = useSelector(store => store.movie.nowPlayingMovies);
-    const popularMoviesObj = useSelector(store => store.movie.popularMovies);
-    const topRatedMoviesObj = useSelector(store => store.movie.topRatedMovies);
-    const upcomingMoviesObj = useSelector(store => store.movie.upcomingMovies);
-    const airingTodayObj = useSelector(store => store.movie.airingToday);
-    const onTheAirObj = useSelector(store => store.movie.onTheAir);
-    if(!nowPlayingMoviesObj || !popularMoviesObj || !topRatedMoviesObj 
-        || !upcomingMoviesObj || !airingTodayObj || !onTheAirObj
-    ) return;
+  const nowPlayingMoviesList = useSelector(
+    (store) => store.movie.nowPlayingMovies?.results
+  );
+  const popularMoviesList = useSelector(
+    (store) => store.movie.popularMovies?.results
+  );
+  const topRatedMoviesList = useSelector(
+    (store) => store.movie.topRatedMovies?.results
+  );
+  const upcomingMoviesList = useSelector(
+    (store) => store.movie.upcomingMovies?.results
+  );
+  const airingTodayList = useSelector(
+    (store) => store.movie.airingToday?.results
+  );
+  const onTheAirList = useSelector((store) => store.movie.onTheAir?.results);
 
-    const nowPlayingMoviesList = nowPlayingMoviesObj.results;      
-    const popularMoviesList = popularMoviesObj.results;
-    const topRatedMoviesList = topRatedMoviesObj.results;
-    const upcomingMoviesList = upcomingMoviesObj.results;
-    const airingTodayList = airingTodayObj.results;
-    const onTheAirList = onTheAirObj.results;
+  if (!nowPlayingMoviesList) return null;
 
-    return (
-        <div className='relative z-50'>
-            <div className='mt-35 md:-mt-86 bg-none relative'>
-                <MovieList title={"Now Playing"} movieList={nowPlayingMoviesList}/>
-            </div>
-            <div className='bg-black'>
-            <MovieList title={"Popular"} movieList={popularMoviesList}/>
-            <MovieList title={"Top Rated"} movieList={topRatedMoviesList}/>
-            <MovieList title={"Upcoming"} movieList={upcomingMoviesList}/>
-            <MovieList title={"Airing Today"} movieList={airingTodayList}/>
-            <MovieList title={"On The Air"} movieList={onTheAirList}/>
-            </div>
-        </div>
-    );
-}
+  return (
+    <div className="relative z-20 bg-linear-to-b from-transparent to-[#141414] pb-10 md:-mt-28">
+      <MovieList title="Now Playing" movieList={nowPlayingMoviesList} />
+      <div className="bg-[#141414]">
+        <MovieList title="Popular" movieList={popularMoviesList} />
+        <MovieList title="Top Rated" movieList={topRatedMoviesList} />
+        <MovieList title="Upcoming" movieList={upcomingMoviesList} />
+        <MovieList
+          title="Airing Today"
+          movieList={airingTodayList}
+          mediaType="tv"
+        />
+        <MovieList title="On The Air" movieList={onTheAirList} mediaType="tv" />
+      </div>
+    </div>
+  );
+};
 
 export default SecondaryContainer;

@@ -16,9 +16,10 @@ const gptSlice = createSlice({
             const {userMoviesData, searchMoviesList} = action.payload;
             state.movies = userMoviesData;
             state.names = searchMoviesList;
+            if (userMoviesData) state.shimmerVisibility = false;
         },
         emptyUserSearchData:(state) => {
-            state.names = null,
+            state.names = null;
             state.movies = null;
         },
         updateShimmerVisibility:(state, action) =>{

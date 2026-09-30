@@ -10,3 +10,10 @@ export const OPTIONS = {
     }
 };
 export const POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
+
+export const GPT_SUGGESTIONS = [
+  'Feel-good Indian comedies',
+  'Mind-bending sci-fi',
+  'Oscar-winning dramas',
+  'Thrillers like Inception',
+];

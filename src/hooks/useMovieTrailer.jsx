@@ -1,20 +1,36 @@
 import { useEffect } from "react";
 import { OPTIONS } from "../utils/constant";
-import { useDispatch, useSelector } from "react-redux";
-import {addMovieTrailerKey} from './../redux/movieSlice'
+import { useDispatch } from "react-redux";
+import { addMovieTrailerKey } from "./../redux/movieSlice";
+
+const pickTrailer = (videos = []) =>
+  videos.find((v) => v.type === "Trailer" && /official/i.test(v.name || "")) ||
+  videos.find((v) => v.type === "Trailer") ||
+  videos.find((v) => v.type === "Teaser") ||
+  videos[0];
 
 const useMovieTrailer = (id) => {
-       const dispatch = useDispatch();
-         const key = useSelector((store) => store.movie.key);
-        const fetchMovieVideos = async() => {
-        const responce = await fetch('https://api.themoviedb.org/3/movie/'+id+'/videos', OPTIONS);
-        const data = await responce.json();
-        const trailerVideoKey = data.results.filter(
-                            (data) => (data.type === "Trailer" && data.name === "Official Trailer"))[0].key;
-        dispatch(addMovieTrailerKey(trailerVideoKey));
-    }
+  const dispatch = useDispatch();
 
-    useEffect(() => {!key && fetchMovieVideos()}, []);
-}
+  useEffect(() => {
+    if (!id) return;
+
+    const fetchMovieVideos = async () => {
+      try {
+        const response = await fetch(
+          "https://api.themoviedb.org/3/movie/" + id + "/videos",
+          OPTIONS
+        );
+        const data = await response.json();
+        const trailer = pickTrailer(data.results);
+        if (trailer?.key) dispatch(addMovieTrailerKey(trailer.key));
+      } catch {
+        // Keep the hero usable even if the trailer request fails.
+      }
+    };
+
+    fetchMovieVideos();
+  }, [id, dispatch]);
+};
 
 export default useMovieTrailer;
